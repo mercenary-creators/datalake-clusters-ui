@@ -1,0 +1,102 @@
+/*
+ * Copyright (c) 2019, Mercenary Creators Company. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the 'License');
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an 'AS IS' BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+plugins {
+    id 'com.moowork.node' version '1.3.1'
+}
+
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+group = 'co.mercenary-creators'
+
+version = '0.0.1-SNAPSHOT'
+
+node {
+    download = true
+}
+
+npm_install.dependsOn(npm_cache_clean)
+
+npm_run_build {
+    inputs.files fileTree('public')
+    inputs.files fileTree('src')
+    inputs.file 'package.json'
+    inputs.file 'package-lock.json'
+    outputs.dir 'build'
+}
+
+task ui_datalake_clusters_jar(type: Jar, dependsOn: npm_run_build) {
+    from('build') {
+        into 'META-INF/resources'
+    }
+}
+
+signing { sign configurations.archives }
+
+artifacts {
+    archives ui_datalake_clusters_jar
+}
+
+String getBuildModuleVersion() {
+    version
+}
+
+String getRepoUploadArchives() {
+    getBuildModuleVersion().endsWith('SNAPSHOT') ? 'https://oss.sonatype.org/content/repositories/snapshots/' : 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
+}
+
+String getUserNameUploadArchives() {
+    project.findProperty('sonatype_username') ?: ''
+}
+
+String getPassWordUploadArchives() {
+    project.findProperty('sonatype_password') ?: ''
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+            repository(url: getRepoUploadArchives()) {
+                authentication(userName: getUserNameUploadArchives(), password: getPassWordUploadArchives())
+            }
+            pom.project {
+                packaging 'jar'
+                description 'Mercenary Creators Kotlin.'
+                url 'https://github.com/mercenary-creators/mercenary-creators-core-kotlin'
+                scm {
+                    url 'scm:git@github.com:mercenary-creators/mercenary-creators-core-kotlin.git'
+                    connection 'scm:git@github.com:mercenary-creators/mercenary-creators-core-kotlin.git'
+                    developerConnection 'scm:git@github.com:mercenary-creators/mercenary-creators-core-kotlin.git'
+                }
+                licenses {
+                    license {
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution 'repo'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'sprocketnyc'
+                        email 'deansjones@gmail.com'
+                        url 'https://www.themodernway.com'
+                    }
+                }
+            }
+        }
+    }
+}
