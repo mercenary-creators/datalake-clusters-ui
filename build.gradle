@@ -23,7 +23,7 @@ apply plugin: 'signing'
 
 group = 'co.mercenary-creators'
 
-version = '0.0.1-SNAPSHOT'
+version = '0.0.3-SNAPSHOT'
 
 node {
     download = true
@@ -76,12 +76,12 @@ uploadArchives {
             }
             pom.project {
                 packaging 'jar'
-                description 'Mercenary Creators Kotlin.'
-                url 'https://github.com/mercenary-creators/mercenary-creators-core-kotlin'
+                description 'Kotlin Spring Boot UI'
+                url 'https://github.com/mercenary-creators/datalake-clusters-ui'
                 scm {
-                    url 'scm:git@github.com:mercenary-creators/mercenary-creators-core-kotlin.git'
-                    connection 'scm:git@github.com:mercenary-creators/mercenary-creators-core-kotlin.git'
-                    developerConnection 'scm:git@github.com:mercenary-creators/mercenary-creators-core-kotlin.git'
+                    url 'scm:git@github.com:mercenary-creators/datalake-clusters-ui.git'
+                    connection 'scm:git@github.com:mercenary-creators/datalake-clusters-ui.git'
+                    developerConnection 'scm:git@github.com:mercenary-creators/datalake-clusters-ui.git'
                 }
                 licenses {
                     license {
