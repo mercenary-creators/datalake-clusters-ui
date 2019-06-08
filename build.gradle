@@ -23,13 +23,13 @@ apply plugin: 'signing'
 
 group = 'co.mercenary-creators'
 
-version = '0.0.3-SNAPSHOT'
+version = '0.0.5-SNAPSHOT'
 
 node {
     download = true
 }
 
-npm_install.dependsOn(npm_cache_clean)
+npm_install.dependsOn(npm_cache_clean, clean)
 
 npm_run_build {
     inputs.files fileTree('public')
@@ -42,6 +42,13 @@ npm_run_build {
 task ui_datalake_clusters_jar(type: Jar, dependsOn: npm_run_build) {
     from('build') {
         into 'META-INF/resources'
+    }
+}
+
+clean {
+    delete(fileTree('build'))
+    doLast {
+        println ':clean-done'
     }
 }
 
@@ -98,5 +105,11 @@ uploadArchives {
                 }
             }
         }
+    }
+}
+
+task deploy(dependsOn: uploadArchives) {
+    doLast {
+        println ':deploy-done'
     }
 }
