@@ -16,14 +16,6 @@
 
 import {IOperation} from './pages/DemoPage';
 
-const bindingOperation = (path: string): IOperation => {
-    return {
-        path,
-        label: 'Bindings',
-        dataJsonPath: '$..bindings[*]'
-    }
-};
-
 const queryOperation = (path: string, label: string): IOperation => {
     return {
         path,
@@ -33,7 +25,6 @@ const queryOperation = (path: string, label: string): IOperation => {
 };
 
 export const clusterOperations: IOperation[] = [
-    bindingOperation('/open/clusters'),
     {
         label: 'Todos',
         path: '/open/clusters/todos',
@@ -42,7 +33,6 @@ export const clusterOperations: IOperation[] = [
 ];
 
 export const datalakeOperations: IOperation[] = [
-    bindingOperation('/open/datalake'),
     {
         label: 'Posts',
         path: '/open/datalake/posts',
@@ -51,7 +41,6 @@ export const datalakeOperations: IOperation[] = [
 ];
 
 export const servicesOperations: IOperation[] = [
-    bindingOperation('/open/services'),
     queryOperation('/open/services/node', 'Nodes'),
     queryOperation('/open/services/list', 'Servers')
 ];
