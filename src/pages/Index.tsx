@@ -15,7 +15,7 @@
  */
 
 import React from 'react';
-import {Theme, WithStyles, createStyles, withStyles} from '@material-ui/core/styles';
+import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core/styles';
 import {routes} from '../routes';
 import {Route, Switch} from 'react-router';
 import {AppBar, Tabs} from '@material-ui/core';
