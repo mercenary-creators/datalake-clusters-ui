@@ -1,0 +1,7 @@
+.TableHeadStyle {
+    font-weight: 900 !important;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    color: white !important;
+    background-color: black;
+}
