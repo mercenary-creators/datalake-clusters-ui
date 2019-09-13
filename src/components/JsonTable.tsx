@@ -27,27 +27,31 @@ interface IJsonTableProps {
 }
 
 const evenRowStyle = {
-    backgroundColor: "White"
+    backgroundColor: "White",
+    border: "2px solid black",
+    hover: "background-color: #f5f5f5"
 };
 
-const jsonRowStyle = {
-    backgroundColor: "LightGray"
+const darkRowStyle = {
+    backgroundColor: "LightGray",
+    border: "2px solid black",
+    hover: "background-color: #636363"
 };
 
 export class JsonTable extends Component<IJsonTableProps> {
 
     even(i: number): CSSProperties {
-        return ((i % 2) == 1) ? jsonRowStyle : evenRowStyle;
+        return ((i % 2) == 1) ? darkRowStyle : evenRowStyle;
     }
 
     public render() {
         const {data} = this.props;
-        return <Table>
+        return <Table className={"TableStyle"}>
             <TableHead>
                 <TableRow>{Object.keys(data[0]).map((key, i) => <TableCell className={"TableHeadStyle"} key={i}>{key}</TableCell>)}</TableRow>
             </TableHead>
             <TableBody>
-                {data.map((row: any, i) => <TableRow style={this.even(i)} key={i}>{Object.values(row).map((c: any, j) => <TableCell key={j}>{c.toString()}</TableCell>)}</TableRow>)}
+                {data.map((row: any, i) => <TableRow style={this.even(i)} key={i}>{Object.values(row).map((c: any, j) => <TableCell className={"TableDataStyle"} key={j}>{c.toString()}</TableCell>)}</TableRow>)}
             </TableBody>
         </Table>
     };

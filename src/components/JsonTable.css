@@ -4,4 +4,14 @@
     text-transform: capitalize;
     color: white !important;
     background-color: black;
+    border: 2px solid black !important;
+}
+
+.TableStyle {
+    border-collapse: collapse !important;
+    border: 2px solid black !important;
+}
+
+.TableDataStyle {
+    border: 2px solid black !important;
 }
