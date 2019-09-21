@@ -15,3 +15,21 @@
 .TableDataStyle {
     border: 2px solid black !important;
 }
+
+.darkRowStyle {
+    background-color: LightGray;
+    border: 2px solid black !important;
+}
+
+.darkRowStyle:hover {
+    background-color: #6a6e8f;
+}
+
+.evenRowStyle {
+    background-color: White;
+    border: 2px solid black !important;
+}
+
+.evenRowStyle:hover {
+    background-color: #9ab1f5;
+}

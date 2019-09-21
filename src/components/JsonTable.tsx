@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import React, {Component, CSSProperties} from 'react';
+import React, {Component} from 'react';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
@@ -26,22 +26,10 @@ interface IJsonTableProps {
     data: any[];
 }
 
-const evenRowStyle = {
-    backgroundColor: "White",
-    border: "2px solid black",
-    hover: "background-color: #f5f5f5"
-};
-
-const darkRowStyle = {
-    backgroundColor: "LightGray",
-    border: "2px solid black",
-    hover: "background-color: #636363"
-};
-
 export class JsonTable extends Component<IJsonTableProps> {
 
-    even(i: number): CSSProperties {
-        return ((i % 2) == 1) ? darkRowStyle : evenRowStyle;
+    even(i: number): string {
+        return ((i % 2) == 1) ? "darkRowStyle" : "evenRowStyle";
     }
 
     public render() {
@@ -51,7 +39,7 @@ export class JsonTable extends Component<IJsonTableProps> {
                 <TableRow>{Object.keys(data[0]).map((key, i) => <TableCell className={"TableHeadStyle"} key={i}>{key}</TableCell>)}</TableRow>
             </TableHead>
             <TableBody>
-                {data.map((row: any, i) => <TableRow style={this.even(i)} key={i}>{Object.values(row).map((c: any, j) => <TableCell className={"TableDataStyle"} key={j}>{c.toString()}</TableCell>)}</TableRow>)}
+                {data.map((row: any, i) => <TableRow className={this.even(i)} key={i}>{Object.values(row).map((c: any, j) => <TableCell className={"TableDataStyle"} key={j}>{c.toString()}</TableCell>)}</TableRow>)}
             </TableBody>
         </Table>
     };
