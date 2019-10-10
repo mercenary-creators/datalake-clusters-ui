@@ -19,24 +19,17 @@ import {IOperation} from './pages/DemoPage';
 const queryOperation = (path: string, label: string): IOperation => {
     return {
         path,
-        label,
-        dataJsonPath: '$..results[*]'
+        label
     }
 };
 
 export const clusterOperations: IOperation[] = [
-    {
-        label: 'Todos',
-        path: '/open/clusters/todos',
-    },
+    queryOperation('/open/clusters/todos', 'Todos'),
     queryOperation('/open/clusters/roles', 'Roles')
 ];
 
 export const datalakeOperations: IOperation[] = [
-    {
-        label: 'Posts',
-        path: '/open/datalake/posts',
-    },
+    queryOperation('/open/datalake/posts', 'Posts'),
     queryOperation('/open/datalake/users', 'Users')
 ];
 

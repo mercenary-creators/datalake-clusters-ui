@@ -29,7 +29,7 @@ interface IJsonTableProps {
 export class JsonTable extends Component<IJsonTableProps> {
 
     even(i: number): string {
-        return ((i % 2) == 1) ? "darkRowStyle" : "evenRowStyle";
+        return ((i % 2) === 1) ? "darkRowStyle" : "evenRowStyle";
     }
 
     public render() {
