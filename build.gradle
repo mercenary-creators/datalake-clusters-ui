@@ -23,7 +23,7 @@ apply plugin: 'signing'
 
 group = 'co.mercenary-creators'
 
-version = '8.6.0-SNAPSHOT'
+version = '8.8.9-SNAPSHOT'
 
 node {
     download = true

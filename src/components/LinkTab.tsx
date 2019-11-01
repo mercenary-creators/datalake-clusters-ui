@@ -23,6 +23,7 @@ interface ILinkTabProps extends RouteComponentProps, TabProps {
     to: string;
 }
 
+// @ts-ignore
 export const LinkTab = withRouter<ILinkTabProps>(({history, to, ...props}) => {
     delete props.staticContext;
     return <Tab component='a' onClick={event => {

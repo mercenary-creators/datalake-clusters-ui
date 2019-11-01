@@ -18,8 +18,9 @@ import React from 'react';
 import {createStyles, Theme, WithStyles, withStyles} from '@material-ui/core/styles';
 import {routes} from '../routes';
 import {Route, Switch} from 'react-router';
-import {AppBar, Tabs} from '@material-ui/core';
+import {AppBar, Button, Tabs} from '@material-ui/core';
 import {LinkTab} from '../components/LinkTab';
+import Toolbar from '@material-ui/core/Toolbar';
 
 const styles = (theme: Theme) => createStyles({
     root: {
@@ -64,9 +65,12 @@ const Index = withStyles(styles)(
             const {selected} = this.state;
             return <div>
                 <AppBar position='static'>
-                    <Tabs variant='fullWidth' value={selected} onChange={this.onTabChange}>
-                        {routes.map((r, i) => <LinkTab key={i} label={r.label} value={r.label} to={r.path}/>)}
-                    </Tabs>
+                    <Toolbar>
+                        <Button color="inherit">8.8.9-SNAPSHOT</Button>
+                        <Tabs variant='fullWidth' value={selected} onChange={this.onTabChange}>
+                            {routes.map((r, i) => <LinkTab key={i} label={r.label} value={r.label} to={r.path}/>)}
+                        </Tabs>
+                    </Toolbar>
                 </AppBar>
                 <Switch>
                     <Route {...routes[0]} path='/' exact={true}/>

@@ -34,6 +34,20 @@ export class JsonTable extends Component<IJsonTableProps> {
 
     public render() {
         const {data} = this.props;
+        if (data.length === 0) {
+            return <Table className={"TableStyle"}>
+                <TableHead>
+                    <TableRow>
+                        <TableCell className={"TableHeadStyle"}>No Data</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    <TableRow>
+                        <TableCell className={"TableDataStyle"}>...</TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        }
         return <Table className={"TableStyle"}>
             <TableHead>
                 <TableRow>{Object.keys(data[0]).map((key, i) => <TableCell className={"TableHeadStyle"} key={i}>{key}</TableCell>)}</TableRow>

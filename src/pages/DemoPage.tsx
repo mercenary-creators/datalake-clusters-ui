@@ -54,7 +54,7 @@ export class DemoPage extends Component<IDemoPageProps, IDemoPageState> {
         } catch (e) {
             console.error(`Error retrieving data using config ${JSON.stringify(config)}`);
         }
-        if (Array.isArray(tableData) && tableData.length > 0) {
+        if (Array.isArray(tableData) && tableData.length >= 0) {
             this.setState({
                 data: tableData
             })
@@ -69,7 +69,7 @@ export class DemoPage extends Component<IDemoPageProps, IDemoPageState> {
         return <div>
             {title && <h2>{title}</h2>}
             {data && <JsonTable data={data}/>}
-            {operations.map((op) => <Button key={op.label} onClick={() => this.getData(op)}>{op.label}</Button>)};
+            {operations.map((op) => <Button key={op.label} onClick={() => this.getData(op)}>{op.label}</Button>)}
         </div>
     };
 }
