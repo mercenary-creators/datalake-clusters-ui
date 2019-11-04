@@ -66,7 +66,7 @@ const Index = withStyles(styles)(
             return <div>
                 <AppBar position='static'>
                     <Toolbar>
-                        <Button color="inherit">8.8.9-SNAPSHOT</Button>
+                        <Button color="inherit">8.9.2-SNAPSHOT</Button>
                         <Tabs variant='fullWidth' value={selected} onChange={this.onTabChange}>
                             {routes.map((r, i) => <LinkTab key={i} label={r.label} value={r.label} to={r.path}/>)}
                         </Tabs>

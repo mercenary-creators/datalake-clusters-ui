@@ -1,6 +1,6 @@
 {
   "name": "datalake-clusters-ui",
-  "version": "8.6.0-SNAPSHOT",
+  "version": "8.9.2-SNAPSHOT",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.3",
