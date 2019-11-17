@@ -24,8 +24,8 @@ const queryOperation = (path: string, label: string): IOperation => {
 };
 
 export const clusterOperations: IOperation[] = [
-    queryOperation('/open/clusters/todos', 'Todos'),
-    queryOperation('/open/clusters/roles', 'Roles')
+    queryOperation('/open/datalake/todos', 'Todos'),
+    queryOperation('/open/datalake/roles', 'Roles')
 ];
 
 export const datalakeOperations: IOperation[] = [
@@ -34,6 +34,6 @@ export const datalakeOperations: IOperation[] = [
 ];
 
 export const servicesOperations: IOperation[] = [
-    queryOperation('/open/services/node', 'Nodes'),
-    queryOperation('/open/services/list', 'Servers')
+    queryOperation('/open/datalake/node', 'Nodes'),
+    queryOperation('/open/datalake/list', 'Servers')
 ];
