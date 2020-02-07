@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, Mercenary Creators Company. All rights reserved.
+ * Copyright (c) 2020, Mercenary Creators Company. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -66,7 +66,7 @@ const Index = withStyles(styles)(
             return <div>
                 <AppBar position='static'>
                     <Toolbar>
-                        <Button color="inherit">9.3.0-SNAPSHOT</Button>
+                        <Button color="inherit">9.3.5-SNAPSHOT</Button>
                         <Tabs variant='fullWidth' value={selected} onChange={this.onTabChange}>
                             {routes.map((r, i) => <LinkTab key={i} label={r.label} value={r.label} to={r.path}/>)}
                         </Tabs>
