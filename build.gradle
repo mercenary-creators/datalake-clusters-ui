@@ -23,7 +23,7 @@ apply plugin: 'signing'
 
 group = 'co.mercenary-creators'
 
-version = '9.3.5-SNAPSHOT'
+version = '9.6.5-SNAPSHOT'
 
 node {
     download = true
@@ -105,11 +105,5 @@ uploadArchives {
                 }
             }
         }
-    }
-}
-
-task deploy(dependsOn: uploadArchives) {
-    doLast {
-        println ':deploy-done'
     }
 }
