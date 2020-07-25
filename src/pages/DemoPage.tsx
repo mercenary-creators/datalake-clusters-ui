@@ -71,5 +71,5 @@ export class DemoPage extends Component<IDemoPageProps, IDemoPageState> {
             {data && <JsonTable data={data}/>}
             {operations.map((op) => <Button key={op.label} onClick={() => this.getData(op)}>{op.label}</Button>)}
         </div>
-    };
+    }
 }

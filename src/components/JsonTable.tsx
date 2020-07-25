@@ -56,5 +56,5 @@ export class JsonTable extends Component<IJsonTableProps> {
                 {data.map((row: any, i) => <TableRow className={this.even(i)} key={i}>{Object.values(row).map((c: any, j) => <TableCell className={"TableDataStyle"} key={j}>{c.toString()}</TableCell>)}</TableRow>)}
             </TableBody>
         </Table>
-    };
+    }
 }
